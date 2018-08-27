@@ -1,0 +1,30 @@
+.THIS h2 {
+    color:#16325C;
+    font-size:1.1rem;
+    font-weight:400;
+}
+
+.THIS .slds-item {
+    color:#54698D;
+    line-height:170%;
+    margin-right:.7rem;
+}
+
+.THIS .initiative {
+    color:#0070D2;
+}
+
+.THIS .bold {
+    font-weight:regular;
+}
+
+.THIS .closeButton {
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:400;
+}
+
+.THIS svg.red {
+    fill: red;
+}

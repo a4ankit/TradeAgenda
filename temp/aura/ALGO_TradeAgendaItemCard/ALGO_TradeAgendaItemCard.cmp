@@ -1,0 +1,31 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="ALGO_TradeInitiativeApexController">
+    <aura:attribute name="item" type="List" default="" access="global" />
+    <aura:attribute name="selectedCardIndex" type="String" access="global" />
+    <aura:attribute name="hasAttachments" type="String" default="true" />
+    <aura:registerEvent name="DelCardEvent" type="c:DeleteCardFromChildToParent"/>
+    <aura:attribute name="AvailableagendaItems" type="List" default="" access="global" />
+    
+    	<div class="slds-box slds-p-around_small slds-size_1-of-1" style="width:100%;position:relative;">
+            <div>
+                <h2>{!v.item.Name}</h2>
+                <div class="closeButton"><lightning:buttonIcon iconName="utility:close" variant="container" alternativeText="delete" iconClass="red" onclick="{!c.deleteItem}" title="Default" size="medium"/></div>
+                <ul class="slds-grid slds-wrap">
+                    <li class="slds-item">{!v.item.MyAddy__TradeInitiative__r.MyAddy__Sponsor__r.Name}</li>
+                    <li class="slds-item initiative">{!v.item.MyAddy__TradeInitiative__r.Name}</li>
+                </ul>
+                <ul class="slds-grid slds-wrap">
+                    
+                    <li class="slds-item"><span class="bold">Effective Start Date: </span>{!v.item.MyAddy__TradeInitiative__r.MyAddy__EffectiveStartDate__c}</li>
+                    <li class="slds-item">--</li>
+                    <li class="slds-item"><span class="bold">Effective End Date:</span> {!v.item.MyAddy__TradeInitiative__r.MyAddy__EffectiveEndDate__c}</li>
+                    <aura:if isTrue="{!v.item.hasAttachment}">
+                        <li class="slds-item">
+                            <lightning:icon iconName="utility:attach" size="x-small" color="default"/>
+                        </li>
+                    </aura:if>
+                </ul>
+            </div>        
+        
+        </div>
+	
+</aura:component>

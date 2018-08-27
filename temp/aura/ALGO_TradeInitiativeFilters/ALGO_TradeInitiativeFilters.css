@@ -1,0 +1,15 @@
+.THIS .slds-input {
+    width:100%;
+}
+
+.THIS [is=lightning-input][lightning-input_input], .THIS lightning-input[lightning-input_input] {
+    width:100%;
+}
+
+.THIS .hide {
+    display:none;
+}
+
+.THIS .expand {
+    display:block;
+}

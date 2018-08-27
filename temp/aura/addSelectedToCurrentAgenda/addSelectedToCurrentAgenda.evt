@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="This event used to send value from child component to parent component">
+    <aura:attribute name="TradeInitiatives" type="List[]"/>
+</aura:event>

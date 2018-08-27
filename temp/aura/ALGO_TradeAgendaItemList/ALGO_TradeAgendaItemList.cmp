@@ -1,0 +1,26 @@
+<aura:component controller="ALGO_TradeInitiativeApexController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:handler name="doCreateTradeItem" event="c:addSelectedToCurrentAgenda" action="{!c.doAddAllCurrent}"/>
+    <aura:handler name="DelCardEntReceiver" event="c:DeleteCardFromChildToParent" action="{!c.doDeleteSelectedCard}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="agendaItems" type="List" default="" access="global" />
+    <aura:attribute name="recordId" type="String" />
+    
+	<div style="width:100%;">
+        <div class="slds-grid slds-grid_align-spread slds-p-bottom_medium slds-border_bottom" style="align-items:center;">
+            <div  class="slds-m-left_x-small"> 	
+                <h1>Call Agenda Items</h1>
+                <p>Items: {!v.agendaItems.length}</p>
+             </div>
+            <div>
+                 <lightning:button label="New Agenda Item" iconName="utility:add" iconPosition="left"  variant="brand" onclick="{!c.createRecord}"/>
+            </div>
+        </div>
+    	<div class="slds-grid slds-grid_vertical slds-p-top_small" style="width:100%:">
+            <aura:iteration items="{!v.agendaItems}" var="item" indexVar="index">
+                <div class="slds-m-vertical_x-small" onclick="{!c.navToRecord}">
+            		<c:ALGO_TradeAgendaItemCard item="{!item}" selectedCardIndex="{!index}" AvailableagendaItems="{!v.agendaItems}"/>
+                </div>
+            </aura:iteration>
+    	</div>
+     </div>
+</aura:component>

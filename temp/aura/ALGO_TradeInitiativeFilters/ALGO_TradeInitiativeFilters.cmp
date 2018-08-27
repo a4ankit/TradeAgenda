@@ -1,0 +1,50 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <!--This attribute used to set visibility of 'Add Selected to Current Agenda' button -->
+	<aura:attribute name="isDisabled" type="Boolean"/>
+    
+    <!-- This section used to search Trade Initiative by Name 
+    <div class="slds-grid slds-p-around_x-small slds-m-bottom_medium" style="width:100%;display:flex; flex:1 auto;">
+        <lightning:input type="search" label="Search " name="search" />
+    </div>-->
+    
+    <div class="slds-grid slds-grid_align-spread slds-p-bottom_medium slds-border_bottom" style="align-items:center;position:relative;">
+        
+        <!--<div  class="slds-m-left_x-small">
+            <lightning:button disabled="{!v.isDisabled }" label="Add Selected to Current Agenda" iconName="utility:add" iconPosition="left"  variant="neutral" onclick=""/>
+        </div> -->
+        
+        <div>
+            <lightning:buttonIcon iconName="utility:filterList" title="Filter" 
+                                  alternativeText="Filter" variant="container" size="medium" onclick="{!c.toggleFilters}"/>
+            <div class="slds-box hide" aura:id="filterCmp" style="background:white;position:absolute;top:10px;right:15px;z-index:400;">
+                <div class="slds-m-right_small" style="position:absolute;top:5px;right:0;z-index:1600;">
+                    <div class="button-toggle">
+                        <lightning:buttonIcon iconName="utility:close" variant="container" size="medium" alternativeText="filter" iconClass="" onclick="" />
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-grid_pull-padded lc-filters-container">
+                    <div class="slds-p-around_small slds-size_1-of-1">
+                        
+                        <lightning:input type="search" 
+                                         label="Search Trade Something" 
+                                         value="" 
+                                         name="locationNumber" />
+                        
+                    </div>	
+                    <div class="slds-p-horizontal_small slds-size_1-of-1">
+                        
+                        <lightning:input type="search" 
+                                         label="other" 
+                                         value="" 
+                                         name="searchString" />
+                        
+                    </div>	
+                    <div class="slds-p-around_small slds-grid slds-grid_align-end slds-size_1-of-1 lc-search-button-container">
+                            <div class="slds-m-right_small"> <lightning:button variant="neutral" label="Clear" onclick="" /></div>
+                            <div> <lightning:button variant="brand" label="Filter" onclick="" /></div>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>
